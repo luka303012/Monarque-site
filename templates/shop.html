@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monarque | Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="nav-menu">
+        <a href="/">About</a>
+        <a href="/shop">Shop</a>
+        <a href="/reviews">Reviews</a>
+    </nav>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {% for item in items %}
+            <div class="swiper-slide">
+                <div class="slide-container">
+                    <img src="{{ url_for('static', filename=item.img) }}" class="product-img">
+                    <div class="info-box">
+                        <div style="font-size: 10px; letter-spacing: 4px; opacity: 0.4;">{{ item.category }}</div>
+                        <h2 class="prod-name">{{ item.name }}</h2>
+                        <p style="font-size: 13px; opacity: 0.5;">${{ item.price }}</p>
+                        <button class="buy-btn">ADD TO BAG</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper('.swiper', { speed: 1000, mousewheel: true });
+    </script>
+</body>
+</html>

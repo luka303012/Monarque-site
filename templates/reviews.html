@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monarque | Community</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="overflow-y: auto;">
+    <nav class="nav-menu">
+        <a href="/">About</a>
+        <a href="/shop">Shop</a>
+        <a href="/reviews">Reviews</a>
+    </nav>
+
+    <div class="rev-section">
+        <h1 class="section-title">Community</h1>
+
+        <form method="POST" class="rev-form">
+            <input type="text" name="user" placeholder="NAME" required>
+            <textarea name="text" placeholder="YOUR MESSAGE" rows="3" required></textarea>
+            <button type="submit" class="btn-send">PUBLISH</button>
+        </form>
+
+        <div class="reviews-list">
+            {% for r in reviews %}
+            <div class="review-card">
+                <div class="rev-user">{{ r.user }} // {{ r.date.strftime('%Y') }}</div>
+                <div class="rev-text">"{{ r.text }}"</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

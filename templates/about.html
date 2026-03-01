@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monarque | Official</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="nav-menu">
+        <a href="/">About</a>
+        <a href="/shop">Shop</a>
+        <a href="/reviews">Reviews</a>
+    </nav>
+
+    <div style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" style="width: 400px; filter: brightness(0) invert(1);">
+        <h1 style="letter-spacing: 20px; font-weight: 200; margin-top: 30px;">MONARQUE</h1>
+    </div>
+</body>
+</html>
